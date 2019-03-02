@@ -17,7 +17,7 @@ Host git_tenpybot
 * install necessary python packages inside this environment
 ```
 source tenpybot_env/bin/activate
-pip3 install --upgrade sphinx numpydoc yapf numpy scipy
+pip3 install --upgrade sphinx numpydoc yapf numpy scipy nose matplotlib
 ```
 * cloning the required git repositories
 ```

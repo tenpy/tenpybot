@@ -2,6 +2,10 @@
 PREFIX="$(dirname "$(readlink -f "$0")")"
 FAILURE=""
 test -d "$PREFIX/logs" || export FAILURE="log directory does not exist"
+if [ -z "$FAILURE" ]
+then
+	bash "$PREFIX/run_tests.sh" || export FAILURE="run_tests.sh failed"
+fi
 # if [ -z "$FAILURE" ]
 # then
 #     bash "$PREFIX/autoformat.sh" || export FAILURE="autoformat.sh failed"
