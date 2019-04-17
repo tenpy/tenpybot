@@ -22,6 +22,7 @@ pip3 install --upgrade sphinx numpydoc yapf numpy scipy nose matplotlib
 * cloning the required git repositories
 ```
 git clone git_tenpybot:tenpy/tenpy.git tenpy
+git clone git_tenpybot:tenpy/tenpy.git tenpy_compile
 git clone git_tenpybot:tenpy/tenpy.github.io.git tenpy.github.io
 ```
 * The file `cronjob_run.sh` reads the email from `my_email.txt` to notify in case of an error. It requires the linux
