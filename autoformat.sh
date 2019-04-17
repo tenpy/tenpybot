@@ -11,7 +11,7 @@ TENPYDIR="$PREFIX/tenpy"
 	echo -n "check git status before pull: " && test -z "$(git status -s)" && echo "ok"
 	git pull
 	echo -n "check git status after pull: " && test -z "$(git status -s)" && echo "ok"
-	MSG="Autoformat with yapf"
+	MSG="Autoformat with $(yapf --version)"
 	yapf -r -i .
 	if [ -n "$(git status -s)" ]
 	then

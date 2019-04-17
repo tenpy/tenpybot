@@ -6,14 +6,14 @@ if [ -z "$FAILURE" ]
 then
 	bash "$PREFIX/run_tests.sh" || export FAILURE="run_tests.sh failed"
 fi
-# if [ -z "$FAILURE" ]
-# then
-#     bash "$PREFIX/autoformat.sh" || export FAILURE="autoformat.sh failed"
-# fi
 if [ -z "$FAILURE" ]
 then
-	bash "$PREFIX/doc_src2rst.sh" || export FAILURE="doc_src2rst.sh failed"
+	bash "$PREFIX/autoformat.sh" || export FAILURE="autoformat.sh failed"
 fi
+# if [ -z "$FAILURE" ]
+# then
+#     bash "$PREFIX/doc_src2rst.sh" || export FAILURE="doc_src2rst.sh failed"
+# fi
 if [ -z "$FAILURE" ]
 then
 	bash "$PREFIX/update_doc.sh" || export FAILURE="update_doc.sh failed"
