@@ -14,7 +14,7 @@ TENPYDIRCOMPILED="$PREFIX/tenpy"
 	git pull
 	echo -n "check git status after pull: " && test -z "$(git status -s)" && echo "ok"
 	cd tests
-	nosetests
+	pytest
 	echo -n "check git status after tests: " && test -z "$(git status -s)" && echo "ok"
 	if [ -d "$TENPYDIRCOMPILED" ]
 	then
@@ -27,7 +27,7 @@ TENPYDIRCOMPILED="$PREFIX/tenpy"
 		bash ./compile.sh
 		echo -n "check git status after pull: " && test -z "$(git status -s)" && echo "ok"
 		cd tests
-		nosetests
+		pytest
 		echo -n "check git status after tests: " && test -z "$(git status -s)" && echo "ok"
 	fi
 } &> "$LOGFILE"
