@@ -4,7 +4,7 @@ set -e
 PREFIX="$(dirname "$(readlink -f "$0")")"
 LOGFILE=$PREFIX/logs/run-tests-$(date "+%d").txt
 TENPYDIR="$PREFIX/tenpy"
-TENPYDIRCOMPILED="$PREFIX/tenpy"
+TENPYDIRCOMPILED="$PREFIX/tenpy_compiled"
 {
 	source "$PREFIX/tenpybot_env/bin/activate"
 	cd "$TENPYDIR"
@@ -20,7 +20,7 @@ TENPYDIRCOMPILED="$PREFIX/tenpy"
 	then
 		echo "in $TENPYDIRCOMPILED"
 		cd "$TENPYDIRCOMPILED"
-		export PYTHONPATH="$TENPYDIR"
+		export PYTHONPATH="$TENPYDIRCOMPILED"
 		echo -n "check git status before pull: " && test -z "$(git status -s)" && echo "ok"
 		git pull
 		echo "compile"

@@ -18,6 +18,7 @@ DOCDIR="$PREFIX/tenpy.github.io"
 	# URL="$(git config --get remote.origin.url)"
 	MSG2="Commit $COMMIT of https://github.com/tenpy/tenpy.git"
 	cd doc
+	test $(date "+%d") == "01" && make clean # clean cache at least once a moth
 	make html
 	rsync -auv --delete --exclude-from="$PREFIX/exclude-docsync.txt" $TENPYDIR/doc/sphinx_build/html/ $DOCDIR
 	cd "$DOCDIR"
