@@ -11,8 +11,9 @@ TENPYDIR="$PREFIX/tenpy"
 	echo -n "check git status before pull: " && test -z "$(git status -s)" && echo "ok"
 	git pull
 	echo -n "check git status after pull: " && test -z "$(git status -s)" && echo "ok"
-	MSG="Autoformat with $(yapf --version)"
-	yapf -r -i .
+	MSG="Autoformat with $(yapf --version) and $(docformatter --version)"
+	yapf -r -i ./
+	docformatter -r -i --wrap-summaries 99 --wrap-descriptions 99 ./
 	if [ -n "$(git status -s)" ]
 	then
 		echo "Repo changed, commit & push"
